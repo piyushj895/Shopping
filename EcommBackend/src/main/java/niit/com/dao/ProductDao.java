@@ -2,7 +2,6 @@ package niit.com.dao;
 
 import java.util.List;
 
-import niit.com.model.Category;
 import niit.com.model.Product;
 
 public interface ProductDao 

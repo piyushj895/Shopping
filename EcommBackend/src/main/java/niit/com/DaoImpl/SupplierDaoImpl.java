@@ -50,10 +50,10 @@ public class SupplierDaoImpl implements SupplierDao
 		 
 		{
 			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from SupplierCategory");
-			List<Supplier> retrieveCategory=query.list();
-			sessionFactory.close();
-			return retrieveSupplier();	
+			Query query=session.createQuery("from Supplier");
+			List<Supplier> retrieveSupplier=query.list();
+//			sessionFactory.close();
+			return retrieveSupplier;	
 		
 		}
 	}

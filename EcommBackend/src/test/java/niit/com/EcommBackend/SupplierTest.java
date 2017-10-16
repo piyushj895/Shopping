@@ -24,12 +24,12 @@ public class SupplierTest
 	    context.scan("niit.com.*");
 	    supplierDao=(SupplierDao) context.getBean("supplierdao");
 	}
-	@Ignore
+@Ignore	
 	@Test
 	public void saveTheSupplier() 
 	{
 		Supplier supplierCategory=new Supplier();
-		supplierCategory.setId(3);
+		supplierCategory.setId(9);
 	     supplierCategory.setSup_name("def");
 	     supplierCategory.setSup_email("def@gmail.com");
 	     supplierCategory.setSup_contact("6477878");
@@ -68,9 +68,9 @@ public void retrieveSupplier()
    this.show(Category);
    }
    	
-   	public void show(List<Supplier> listCategory)
+   	public void show(List<Supplier> listSupplier)
    	{
-   		for(Supplier category:listCategory)
+   		for(Supplier category:listSupplier)
    		{
    			System.out.println("Category ID:"+category.getId());
    			System.out.println("Category Name:"+category.getSup_name());
@@ -79,7 +79,7 @@ public void retrieveSupplier()
    			System.out.println("Category Address "+category.getSup_address());
    		}
    	}
-   	
+   	@Ignore
    	@Test
    	public void getSupplier()
    	{

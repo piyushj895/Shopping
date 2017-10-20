@@ -6,28 +6,26 @@ import javax.persistence.Id;
 public class Product 
 {
 	@Id
-	private int id;
-	private String shoes;
-	private String books;
-
-	public int getId() {
-		return id;
+	private int prod_id;
+	private String prod_name;
+	private String prod_desc;
+	public int getProd_id() {
+		return prod_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setProd_id(int prod_id) {
+		this.prod_id = prod_id;
 	}
-	public String getShoes() {
-		return shoes;
+	public String getProd_name() {
+		return prod_name;
 	}
-	public void setShoes(String shoes) {
-		this.shoes = shoes;
+	public void setProd_name(String prod_name) {
+		this.prod_name = prod_name;
 	}
-	public String getBooks() {
-		return books;
+	public String getProd_desc() {
+		return prod_desc;
 	}
-	public void setBooks(String books) {
-		this.books = books;
-	}
-
+	public void setProd_desc(String prod_desc) {
+		this.prod_desc = prod_desc;
 	}
 
+}

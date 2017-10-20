@@ -21,7 +21,7 @@ public class ProductDaoImpl implements ProductDao
 
 	public void saveTheProduct(Product product) 
 	{
-		sessionFactory.openSession().save(product);
+		sessionFactory.getCurrentSession().save(product);
 		
 	}
 

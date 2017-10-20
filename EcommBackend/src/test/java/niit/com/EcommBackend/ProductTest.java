@@ -28,9 +28,9 @@ public class ProductTest
 	public void saveTheProduct() 
 	{
 		Product product=new Product();
-		product.setId(3);
-		product.setBooks("java Books");
-		product.setShoes("Spikes Shoes");
+		product.setProd_id(2);
+		product.setProd_name("Engg Books");
+		product.setProd_desc("Best book");
 		productdao.saveTheProduct(product);
 	}
 @Ignore
@@ -38,9 +38,9 @@ public class ProductTest
 public void updateTheProduct()
 {
 	Product product=new Product();
-	product.setId(3);
-	product.setBooks("Engg Books");
-	product.setShoes("Shoes");
+	product.setProd_id(2);
+	product.setProd_name("Java Books");
+	product.setProd_desc("Best book");
 	productdao.updateTheProduct(product);
 }
 @Ignore
@@ -48,9 +48,7 @@ public void updateTheProduct()
 public void deleteTheProduct()
 {
 	Product product=new Product();
-	product.setId(1);
-	product.setBooks("Engg Books");
-	product.setShoes("Spikes Shoes");
+	product.setProd_id(2);
 	productdao.deleteTheProduct(product);
 }
 @Ignore
@@ -66,20 +64,21 @@ public void retrieveProduct()
    	{
    		for(Product category:product)
    		{
-   			System.out.println("Product ID:"+category.getId());
-   			System.out.println("Product Books:"+category.getBooks());
-   			System.out.println("Product Shoes  = "+category.getShoes());
+   			System.out.println("Product ID:"+category.getProd_id());
+   			System.out.println("Product Name:"+category.getProd_name());
+   			System.out.println("Product Description  = "+category.getProd_desc());
+   			
    		}
    	}
    	
    	@Test
    	public void getTheProduct()
    	{
-   		Product product=productdao.getTheProduct(3);
+   		Product product=productdao.getTheProduct(2);
    		assertNotNull("Problem in Getting:",product);
-   		System.out.println("Product ID:"+product.getId());
-   		System.out.println("Product Books:"+product.getBooks());
-   		System.out.println("Product Shoes  = "+product.getShoes());
+   		System.out.println("Product ID:"+product.getProd_id());
+   		System.out.println("Product Books:"+product.getProd_name());
+   		System.out.println("Product Shoes  = "+product.getProd_desc());
 	}
 }
 

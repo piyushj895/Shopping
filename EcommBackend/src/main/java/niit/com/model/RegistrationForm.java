@@ -2,26 +2,28 @@ package niit.com.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class RegistrationForm 
 {
+
 	@Id
-	private int id;
+
+	
 	private String email;
 	private String first_name;
 	private String last_name;
 	private String contact_info;
 	private String location;
+	@NotEmpty(message = "Please enter your password.")
+    @Size(min = 6, max = 15, message = "Your password must between 6 and 15 characters")
 	private String password;
 	private String gender;
 	private String address;
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getEmail() {
 		return email;
 	}

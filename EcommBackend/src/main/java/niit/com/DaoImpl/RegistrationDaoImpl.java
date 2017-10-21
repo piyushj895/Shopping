@@ -24,7 +24,7 @@ public class RegistrationDaoImpl implements RegistrationDao
 	public void saveTheRegistration(RegistrationForm registrationForm)
 	{
 		sessionFactory.getCurrentSession().save(registrationForm);
-		System.out.println("in category"+sessionFactory);
+		
 		
 	}
 
@@ -40,24 +40,22 @@ public class RegistrationDaoImpl implements RegistrationDao
 		
 	}
 
-	public RegistrationForm getTheRegistration(int registrationId) 
-	{
-		Session session=sessionFactory.openSession();
-		RegistrationForm registrationForm=(RegistrationForm)session.get(RegistrationForm.class, registrationId);
-		session.close();
-		return registrationForm;
-		
-	}
 	
-
 	public List<RegistrationForm> retrieveRegistrationForm() 
 	{
 
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from RegistrationForm");
-		List<RegistrationForm> retrieveCategory=query.list();
-		sessionFactory.close();
-		return retrieveRegistrationForm();
+		List<RegistrationForm> retrieveRegistrationForms=query.list();
+		
+		return retrieveRegistrationForms;
+	}
+
+	public RegistrationForm getTheRegistration(String registrationemail) {
+		Session session=sessionFactory.openSession();
+		RegistrationForm registrationForm=(RegistrationForm)session.get(RegistrationForm.class, registrationemail);
+		session.close();
+		return registrationForm;
 	}
 }
 

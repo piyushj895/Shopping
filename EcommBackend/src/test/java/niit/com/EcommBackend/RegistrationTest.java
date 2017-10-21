@@ -28,7 +28,6 @@ public class RegistrationTest
 		public void saveTheRegistration() 
 		{
 			RegistrationForm registrationForm=new RegistrationForm();
-			registrationForm.setId(5);
 			registrationForm.setEmail("piyushj266@gmail.com");
 			registrationForm.setFirst_name("Piyush123");
 			registrationForm.setLast_name("Jain123");
@@ -39,13 +38,15 @@ public class RegistrationTest
 			registrationForm.setAddress("A/20,Laxmi Nagar,Andheri East,Mumbai");
 			registrationdao.saveTheRegistration(registrationForm);
 		}
-		@Ignore
+	@Ignore
 		@Test
 		public void updateTheRegistration() 
 		{
 			RegistrationForm registrationForm=new RegistrationForm();
-			registrationForm.setId(1);
-			registrationForm.setEmail("piyushj7467@gmail.com");
+			
+			registrationForm.setEmail("piyushj266@gmail.com");
+			registrationForm.setFirst_name("Piyush");
+			registrationForm.setPassword("123456");
 			registrationdao.updateTheRegistration(registrationForm);
 		}
 		@Ignore
@@ -53,17 +54,17 @@ public class RegistrationTest
 		public void deleteTheRegistration() 
 		{
 			RegistrationForm registrationForm=new RegistrationForm();
-			registrationForm.setId(1);
-			registrationForm.setEmail("piyushj7467@gmail.com");
+			
+			registrationForm.setEmail("piyushj266@gmail.com");
 					registrationdao.deleteTheRegistration(registrationForm);
 	}
-		
+			
 		    	@Test
 		    	public void getTheRegistration()
 		    	{
-		    		RegistrationForm registrationForm=registrationdao.getTheRegistration(5);
+		    		RegistrationForm registrationForm=registrationdao.getTheRegistration("piyushj266@gmail.com");
 		    		assertNotNull("Problem in Getting:"+registrationForm);
-		    		System.out.println("Registration ID"+registrationForm.getId());
+		    
 		    		System.out.println("Registration Email:"+registrationForm.getEmail());
 	    			System.out.println("Registration First Name:"+registrationForm.getFirst_name());
 	    			System.out.println("Registration LastName  = "+registrationForm.getLast_name());

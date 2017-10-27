@@ -19,20 +19,24 @@ RegistrationDao registrationDao;
 @RequestMapping(value="/registration")
 public String showTheRegistration(Model m)
 {
-List<RegistrationForm> listRegistration=registrationDao.retrieveRegistrationForm();
-m.addAttribute("registrationList",listRegistration);
 m.addAttribute("registrationmodel",new RegistrationForm());
 return "Registration";
 }
 @RequestMapping(value="/showTheRegistration")
 public String saveTheRegistration(@ModelAttribute RegistrationForm registrationForm,Model m)
 {
-	registrationDao.saveTheRegistration(registrationForm);
-	List<RegistrationForm> listRegistration=registrationDao.retrieveRegistrationForm();
-	m.addAttribute("registrationList", listRegistration);
-	m.addAttribute("registrationmodel", new RegistrationForm());
-	
+	if(registrationForm.getPassword().equals(registrationForm.getCpassword()))
+	{
+		registrationDao.saveTheRegistration(registrationForm);
+	}
+
+	else
+	{
+		m.addAttribute("nomatch", "nomatch");
+	}
+		m.addAttribute("registrationmodel", new RegistrationForm());
 	return "Registration";
+
 
 }
 

@@ -34,6 +34,7 @@ public class RegistrationTest
 			registrationForm.setContact_info("12345678");
 			registrationForm.setGender("Male");
 			registrationForm.setPassword("123456");
+			registrationForm.setCpassword("123456");
 			registrationForm.setLocation("India");
 			registrationForm.setAddress("A/20,Laxmi Nagar,Andheri East,Mumbai");
 			registrationdao.saveTheRegistration(registrationForm);
@@ -47,6 +48,7 @@ public class RegistrationTest
 			registrationForm.setEmail("piyushj266@gmail.com");
 			registrationForm.setFirst_name("Piyush");
 			registrationForm.setPassword("123456");
+			registrationForm.setCpassword("123456");
 			registrationdao.updateTheRegistration(registrationForm);
 		}
 		@Ignore
@@ -58,7 +60,7 @@ public class RegistrationTest
 			registrationForm.setEmail("piyushj266@gmail.com");
 					registrationdao.deleteTheRegistration(registrationForm);
 	}
-			
+//			@Ignore
 		    	@Test
 		    	public void getTheRegistration()
 		    	{
@@ -71,6 +73,7 @@ public class RegistrationTest
 	    			System.out.println("Registration Contact"+registrationForm.getContact_info());
 	    			System.out.println("Registration Gender"+registrationForm.getGender());
 	    			System.out.println("Registration Password"+registrationForm.getPassword());
+	    			System.out.println("Registration Confirm Password"+registrationForm.getCpassword());
 	    			System.out.println("Registration Location"+registrationForm.getLocation());
 	    			System.out.println("Registration Address"+registrationForm.getAddress());
 			}

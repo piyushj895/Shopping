@@ -35,7 +35,7 @@ public class CategoryController
 			m.addAttribute("categorymodel", new Category());
 			return "Category";
 		}
-		@RequestMapping(value="updateCategory/{cat_id}")
+		@RequestMapping(value="updateCategory{cat_id}")
 		public String updateCategory(@PathVariable("cat_id") int catId,Model m)
 		{
 			Category category=dao.getTheCategory(catId);
@@ -43,7 +43,7 @@ public class CategoryController
 			List<Category> listCategory=dao.retrieveCategory();
 			m.addAttribute("categoryList",listCategory);
 
-			return "Category";
+			return "CategoryUpdate";
 		}
 		
 		
@@ -54,7 +54,7 @@ public class CategoryController
 			List<Category> listCategory=dao.retrieveCategory();
 			m.addAttribute("categoryList",listCategory);
 			m.addAttribute("categorymodel", new Category());
-			return "redirect:/category";
+			return "Category";
 		}
 		
 		

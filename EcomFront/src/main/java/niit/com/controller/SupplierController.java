@@ -36,14 +36,14 @@ public class SupplierController
 		return "Supplier";
 		
 	}
-	@RequestMapping(value="updateSupplier/{id}")
-	public String updateSupplier(@PathVariable("id")int suppId,Model m)
+	@RequestMapping(value="updateSupplier{sup_id}")
+	public String updateSupplier(@PathVariable("sup_id")int suppId,Model m)
 	{
 		Supplier supplier=supplierDao.getTheSupplier(suppId);
 		m.addAttribute("suppliermodel", supplier);
 		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
 		m.addAttribute("supplierList", listSupplier);
-		return "Supplier";
+		return "SupplierUpdate";
 	}
 	@RequestMapping(value="/UpdateSupplier")
 	public String updateMySupplier(@ModelAttribute Supplier supplier,Model m)
@@ -52,10 +52,10 @@ public class SupplierController
 		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
 		m.addAttribute("supplierList",listSupplier);
 		m.addAttribute("suppliermodel", new Supplier());
-		return "redirect:/supplier";
+		return "Supplier";
 	}
-	@RequestMapping(value="deleteSupplier/{id}")
-	public String deleteTheSupplier(@PathVariable("id")int suppId,Model m)
+	@RequestMapping(value="deleteSupplier{sup_id}")
+	public String deleteTheSupplier(@PathVariable("sup_id")int suppId,Model m)
 	{
 		Supplier supplier=supplierDao.getTheSupplier(suppId);
 		supplierDao.deleteTheSupplier(supplier);

@@ -14,8 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/header.jsp" %>
-<form:form action="showTheSupplier" modelAttribute="suppliermodel">
+<form:form action="${pageContext.request.contextPath}/UpdateSupplier" modelAttribute="suppliermodel">
 <center>
 <table border="1">
 <tr>

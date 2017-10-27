@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	 <%@ taglib prefix = "spring" uri = "http://java.sun.com/jsp/jstl/core" %>
+	 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,7 +28,8 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<li class="active"><a href="#">Home</a></li>
+				
+				<li class><a href="/home">Home</a></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Product Category <span
@@ -37,8 +38,11 @@
 						<li><a href="#">Footwear</a></li>
 						<li><a href="#">Books</a></li>
 						<li><a href="#">Movies</a></li>
+						<c:forEach var="category" items="${categoryList}">
+					<li><a href="#">${category.cat_name}</a></li> 
+					</c:forEach>
 					</ul></li>
-			
+					
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -47,7 +51,8 @@
 					<li><a href="supplier">Supplier</a></li>
 					
 				</ul></li>
-			</ul>
+				</ul>
+			
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="registration"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>

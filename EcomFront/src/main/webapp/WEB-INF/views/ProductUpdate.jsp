@@ -14,8 +14,7 @@
 <title>Display Product</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/header.jsp" %>
-<form:form action="showTheProduct" modelAttribute="productmodel" enctype="multipart/form-data">
+<form:form action="${pageContext.request.contextPath}/UpdateProduct" modelAttribute="productmodel" enctype="multipart/form-data">
 <center>
 <table border="1">
 
@@ -25,8 +24,11 @@
 </tr>
 <tr>
 <td>Product Name</td>
-<td><form:input path="prod_name"/>
-
+<td><form:select path="prod_name">
+<form:option value="----Select----"/>
+<form:option value="Shoes"/>
+<form:option value="Books"/>
+</form:select>
 </td></tr>
 
 <tr>
@@ -42,21 +44,17 @@
 		<td><form:input path="price"/></td>
 	</tr>
 	<tr>
-	
 		<td>Category</td>
 		<td>
-			<form:select path="cat_id">
-				<form:option value="0" label="---Select---"/>
+			<form:input path="cat_id"/>
+				<%-- <form:option value="0" label="---Select---"/>--%>
 				
-				<form:options items="${categoryList}"/>
-	</form:select>
+				<%--<form:options items="${categoryList}"/>--%>
+	<%--</form:select>--%>
 	</td>
 	</tr>
 	<tr>
-	<td>Product Image</td>
-	Upload :
-      <td><input type="file" name="pimage"/></td>
-      </tr>
+	
 </table>
 <input type="submit" value="Add"/>
 

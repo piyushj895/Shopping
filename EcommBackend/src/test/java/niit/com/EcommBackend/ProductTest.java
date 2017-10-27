@@ -28,9 +28,13 @@ public class ProductTest
 	public void saveTheProduct() 
 	{
 		Product product=new Product();
-		product.setProd_id(2);
+		product.setProd_id(100);
 		product.setProd_name("Engg Books");
 		product.setProd_desc("Best book");
+		product.setStock(10);
+		product.setPrice(600);
+		product.setCat_id(102);
+		product.setSupplierId(101);
 		productdao.saveTheProduct(product);
 	}
 @Ignore
@@ -38,9 +42,14 @@ public class ProductTest
 public void updateTheProduct()
 {
 	Product product=new Product();
-	product.setProd_id(2);
+	product.setProd_id(100);
 	product.setProd_name("Java Books");
 	product.setProd_desc("Best book");
+	product.setStock(10);
+	product.setPrice(600);
+	product.setCat_id(102);
+	product.setSupplierId(101);
+
 	productdao.updateTheProduct(product);
 }
 @Ignore
@@ -48,7 +57,7 @@ public void updateTheProduct()
 public void deleteTheProduct()
 {
 	Product product=new Product();
-	product.setProd_id(2);
+	product.setProd_id(100);
 	productdao.deleteTheProduct(product);
 }
 @Ignore
@@ -65,20 +74,28 @@ public void retrieveProduct()
    		for(Product category:product)
    		{
    			System.out.println("Product ID:"+category.getProd_id());
-   			System.out.println("Product Name:"+category.getProd_name());
-   			System.out.println("Product Description  = "+category.getProd_desc());
+   	   		System.out.println("Product Name:"+category.getProd_name());
+   	   		System.out.println("Product Category ID= "+category.getCat_id());
+   	   		System.out.println("Product Stock = "+category.getStock());
+   	   		System.out.println("Product Price= "+category.getPrice());
+   	   		System.out.println("Product Supplier ID = "+category.getSupplierId());
+   	   		
    			
    		}
    	}
-   	
+//   	@Ignore
    	@Test
    	public void getTheProduct()
    	{
-   		Product product=productdao.getTheProduct(2);
+   		Product product=productdao.getTheProduct(100);
    		assertNotNull("Problem in Getting:",product);
    		System.out.println("Product ID:"+product.getProd_id());
-   		System.out.println("Product Books:"+product.getProd_name());
-   		System.out.println("Product Shoes  = "+product.getProd_desc());
+   		System.out.println("Product Name:"+product.getProd_name());
+   		System.out.println("Product Category ID= "+product.getCat_id());
+   		System.out.println("Product Stock = "+product.getStock());
+   		System.out.println("Product Price= "+product.getPrice());
+   		System.out.println("Product Supplier ID = "+product.getSupplierId());
+   		
 	}
 }
 

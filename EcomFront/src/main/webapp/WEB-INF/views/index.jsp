@@ -8,7 +8,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-<%@ include file="/WEB-INF/views/header.jsp" %>  
+<%@ include file="/WEB-INF/views/header.jsp" %>
 <h2>Welcome To Online Shopping</h2>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

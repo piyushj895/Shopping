@@ -29,7 +29,7 @@ public class SupplierTest
 	public void saveTheSupplier() 
 	{
 		Supplier supplierCategory=new Supplier();
-		supplierCategory.setId(9);
+		supplierCategory.setSup_id(9);
 	     supplierCategory.setSup_name("def");
 	     supplierCategory.setSup_email("def@gmail.com");
 	     supplierCategory.setSup_contact("6477878");
@@ -42,7 +42,7 @@ public class SupplierTest
 public void updateTheSupplier()
 {
 	Supplier supplierCategory=new Supplier();
-	supplierCategory.setId(3);
+	supplierCategory.setSup_id(9);
     supplierCategory.setSup_name("def");
     supplierCategory.setSup_email("def@gmail.com");
     supplierCategory.setSup_contact("9827871");
@@ -54,7 +54,7 @@ public void updateTheSupplier()
 public void deleteTheCategory()
 {
 	Supplier supplierCategory=new Supplier();
-    supplierCategory.setId(3);
+    supplierCategory.setSup_id(3);
     
    
    supplierDao.deleteTheSupplier(supplierCategory);
@@ -72,24 +72,24 @@ public void retrieveSupplier()
    	{
    		for(Supplier category:listSupplier)
    		{
-   			System.out.println("Category ID:"+category.getId());
-   			System.out.println("Category Name:"+category.getSup_name());
-   			System.out.println("Category Email  = "+category.getSup_email());
-   			System.out.println("Category Contact"+category.getSup_contact());
-   			System.out.println("Category Address "+category.getSup_address());
+   			System.out.println("Supplier ID:"+category.getSup_id());
+   			System.out.println("Supplier Name:"+category.getSup_name());
+   			System.out.println("Supplier Email  = "+category.getSup_email());
+   			System.out.println("Supplier Contact"+category.getSup_contact());
+   			System.out.println("Supplier Address "+category.getSup_address());
    		}
    	}
-   	@Ignore
+   	
    	@Test
    	public void getSupplier()
    	{
-   		Supplier category=supplierDao.getTheSupplier(3);
+   		Supplier category=supplierDao.getTheSupplier(9);
    		assertNotNull("Problem in Getting:",category);
-   		System.out.println("Category ID:"+category.getId());
-			System.out.println("Category Name:"+category.getSup_name());
-			System.out.println("Category Email  = "+category.getSup_email());
-			System.out.println("Category Contact"+category.getSup_contact());
-			System.out.println("Category Address "+category.getSup_address());
+   		System.out.println("Supplier ID:"+category.getSup_id());
+			System.out.println("Supplier Name:"+category.getSup_name());
+			System.out.println("Supplier Email  = "+category.getSup_email());
+			System.out.println("Supplier Contact"+category.getSup_contact());
+			System.out.println("Supplier Address "+category.getSup_address());
    			}
 
 }

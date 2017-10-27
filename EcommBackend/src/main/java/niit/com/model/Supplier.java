@@ -6,19 +6,21 @@ import javax.persistence.Id;
 public class Supplier 
 {
 	@Id
-	private int id;
+	private int sup_id;
 	private String sup_name;
 	private String sup_email;
 	private String sup_contact;
 	private String sup_address;
 	
 	
-	public int getId() {
-		return id;
+	
+	public int getSup_id() {
+		return sup_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setSup_id(int sup_id) {
+		this.sup_id = sup_id;
 	}
+	
 	public String getSup_name() {
 		return sup_name;
 	}

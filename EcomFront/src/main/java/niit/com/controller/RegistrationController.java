@@ -1,7 +1,5 @@
 package niit.com.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +23,12 @@ return "Registration";
 @RequestMapping(value="/showTheRegistration")
 public String saveTheRegistration(@ModelAttribute RegistrationForm registrationForm,Model m)
 {
+
+registrationForm.setRole("ROLE_USER");
+registrationForm.setEnabled(true);
+registrationDao.saveTheRegistration(registrationForm);
+
+
 	if(registrationForm.getPassword().equals(registrationForm.getCpassword()))
 	{
 		registrationDao.saveTheRegistration(registrationForm);

@@ -41,6 +41,7 @@
 		<td>Product Price</td>
 		<td><form:input path="price"/></td>
 	</tr>
+	
 	<tr>
 	
 		<td>Category</td>
@@ -49,6 +50,17 @@
 				<form:option value="0" label="---Select---"/>
 				
 				<form:options items="${categoryList}"/>
+	</form:select>
+	</td>
+	</tr>
+	<tr>
+	
+		<td>Supplier</td>
+		<td>
+			<form:select path="supplierId">
+				<form:option value="0" label="---Select---"/>
+				
+				<form:options items="${supplierList}"/>
 	</form:select>
 	</td>
 	</tr>
@@ -72,6 +84,8 @@
         <th><h4 style="color:white;">Product ID</h4></th>
         <th><h4 style="color:white;">Product Name</h4></th>
         <th><h4 style="color:white;">Product Description</h4></th>
+        <th><h4 style="color:white;">Product Price</h4></th>
+        <th><h4 style="color:white;">Product Stock</h4></th>
         <th><h4 style="color:white;">Status</h4></th>
       </tr>
       </thead>
@@ -80,7 +94,10 @@
 <td>${product.prod_id}</td>
 <td>${product.prod_name}</td>
 <td>${product.prod_desc}</td>
+<td>${product.price}</td>
+<td>${product.stock}</td>
 <td>
+
 <a href="<c:url value="deleteProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Delete</a>/
 <a href="<c:url value="updateProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Update</a>
 </td>

@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +23,7 @@ import niit.com.dao.ProductDao;
 import niit.com.dao.SupplierDao;
 import niit.com.model.Category;
 import niit.com.model.Product;
+import niit.com.model.Supplier;
 
 
 @Controller
@@ -40,19 +40,46 @@ public class ProductController
 	{
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute(listProduct);
-//		m.addAttribute("categoryList",getCategories());
+		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("supplierList",this.getSuppliers());
 		m.addAttribute("productmodel", new Product());
 		return "Product";
 }
 	
 	@RequestMapping(value="/showTheProduct")
-	public String saveTheProduct(@ModelAttribute Product product,Model m)
+	public String saveTheProduct(@ModelAttribute Product product,Model m ,@RequestParam("pimage") MultipartFile file)
 {
 		productdao.saveTheProduct(product);
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute("productList", listProduct);
 		m.addAttribute("productmodel", new Product());
-	return "Product";
+		String path = "C:\\Users\\pratik\\Desktop\\Shopping-master\\EcomFront\\src\\main\\webapp\\resources\\images\\";
+		String totalFileWithPath=path+String.valueOf(product.getProd_id())+".jpg";
+		File fileupload= new File(totalFileWithPath);
+		
+		if(!file.isEmpty())
+		{
+			try {
+				byte[] arr = file.getBytes();
+				FileOutputStream fos = new FileOutputStream(fileupload);
+				BufferedOutputStream bos = new BufferedOutputStream(fos);
+				bos.write(arr);
+				bos.close();
+			} 
+			catch (IOException e) 
+			{
+				System.out.println("File not uploaded");
+			}
+		}
+		else
+		{
+			System.out.println("File not found");
+		}
+		System.out.println("File uploaded successfully");
+		
+		return "Product";
+
+
 	
 }
 	@RequestMapping(value="updateProduct{prod_id}")
@@ -62,6 +89,8 @@ public class ProductController
 		m.addAttribute("productmodel",product);
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute("productList", listProduct);
+		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("supplierList",this.getSuppliers());
 		return "ProductUpdate";
 		
 	}
@@ -84,31 +113,46 @@ public class ProductController
 		m.addAttribute("productmodel", new Product());
 		return "Product";
 	}
-	@RequestMapping(value="/uploadfile")
-	public String uploadfile(@RequestParam("pimage") MultipartFile file)
+	@RequestMapping(value="userHome")
+	public String showProducts(@ModelAttribute Product product,Model m)
 	{
-		String path = "C:\\Users\\pratik\\Desktop\\image\\ja.jpg";
-	
-		File fileupload= new File(path);
+		List<Product> listProduct=productdao.retrieveProduct();
+		m.addAttribute("productList",listProduct);
+		m.addAttribute("productmodel", new Product());
 		
-		if(!file.isEmpty())
+		return "UserHome";
+	}
+	public LinkedHashMap<Integer,String> getCategories()
+	{
+		List<Category> listCategory=dao.retrieveCategory();
+		LinkedHashMap<Integer,String> categoryList=new LinkedHashMap<Integer,String>();
+		
+		for(Category category:listCategory)
 		{
-			try {
-				byte[] arr = file.getBytes();
-				FileOutputStream fos = new FileOutputStream(fileupload);
-				BufferedOutputStream bos = new BufferedOutputStream(fos);
-				bos.write(arr);
-				bos.close();
-			} catch (IOException e) {
-				System.out.println("File not uploaded");
-			}
+			categoryList.put(category.getCat_id(),category.getCat_name());
 		}
-		else{
-			System.out.println("File not found");
-		}
-		System.out.println("File uploaded successfully");
 		
-		return "Product";
+		return categoryList;
+	}
+	public LinkedHashMap<Integer,String> getSuppliers()
+	{
+		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
+		LinkedHashMap<Integer,String> supplierList=new LinkedHashMap<Integer,String>();
+		
+		for(Supplier supplier:listSupplier)
+		{
+			supplierList.put(supplier.getSup_id(),supplier.getSup_name());
+		}
+		
+		return supplierList;
+	}
+	@RequestMapping(value="prod_desc/{prod_id}")
+	public String showProductDesc(@PathVariable("prod_id")int prodId,Model m)
+	{
+		Product product=productdao.getTheProduct(prodId);
+		m.addAttribute("product",product);
+		m.addAttribute("productmodel", new Product());
+		return "ProdDesc";
 	}
 }
 

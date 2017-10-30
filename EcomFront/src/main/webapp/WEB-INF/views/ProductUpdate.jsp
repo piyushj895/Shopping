@@ -11,24 +11,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Display Product</title>
+<title>Update Product</title>
 </head>
 <body>
 <form:form action="${pageContext.request.contextPath}/UpdateProduct" modelAttribute="productmodel" enctype="multipart/form-data">
 <center>
 <table border="1">
-
 <tr>
 <td>Product ID</td>
 <td><form:input path="prod_id"/></td>
 </tr>
 <tr>
 <td>Product Name</td>
-<td><form:select path="prod_name">
-<form:option value="----Select----"/>
-<form:option value="Shoes"/>
-<form:option value="Books"/>
-</form:select>
+<td><form:input path="prod_name"/>
+
 </td></tr>
 
 <tr>
@@ -44,13 +40,37 @@
 		<td><form:input path="price"/></td>
 	</tr>
 	<tr>
-		<td>Category</td>
-		<td>
-			<form:input path="cat_id"/>
-				<%-- <form:option value="0" label="---Select---"/>--%>
+	
+
+</tr>
+
+<tr>
+<td>Product Description</td>
+<td><form:input path="prod_desc"/></td>
+</tr>
+<tr>
+		<td>Product Stock</td>
+		<td><form:input path="stock"/></td>
+	</tr>
+	<tr>
+	<td>Category</td>
+	<td>
+			<form:select path="cat_id">
+				<form:option value="0" label="---Select---"/>
 				
-				<%--<form:options items="${categoryList}"/>--%>
-	<%--</form:select>--%>
+				<form:options items="${categoryList}"/>
+	</form:select>
+	</td>
+	</tr>
+	<tr>
+	
+		<td>Supplier</td>
+		<td>
+			<form:select path="supplierId">
+				<form:option value="0" label="---Select---"/>
+				
+				<form:options items="${supplierList}"/>
+	</form:select>
 	</td>
 	</tr>
 	<tr>

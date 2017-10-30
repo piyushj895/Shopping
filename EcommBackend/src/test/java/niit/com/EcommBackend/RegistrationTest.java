@@ -23,20 +23,22 @@ public class RegistrationTest
 	context.scan("niit.com.*");
 	registrationdao=(RegistrationDao) context.getBean("registrationdao");
 	}	
-		@Ignore
+//		@Ignore
 		@Test
 		public void saveTheRegistration() 
 		{
 			RegistrationForm registrationForm=new RegistrationForm();
-			registrationForm.setEmail("piyushj266@gmail.com");
-			registrationForm.setFirst_name("Piyush123");
-			registrationForm.setLast_name("Jain123");
-			registrationForm.setContact_info("12345678");
+			registrationForm.setEmail("piyushj564@gmail.com");
+			registrationForm.setFirst_name("Piyush564");
+			registrationForm.setLast_name("Jain");
+			registrationForm.setContact_info("1234567");
 			registrationForm.setGender("Male");
 			registrationForm.setPassword("123456");
 			registrationForm.setCpassword("123456");
 			registrationForm.setLocation("India");
 			registrationForm.setAddress("A/20,Laxmi Nagar,Andheri East,Mumbai");
+			registrationForm.setRole("ROLE_USER");
+			registrationForm.setEnabled(true);
 			registrationdao.saveTheRegistration(registrationForm);
 		}
 	@Ignore
@@ -45,7 +47,7 @@ public class RegistrationTest
 		{
 			RegistrationForm registrationForm=new RegistrationForm();
 			
-			registrationForm.setEmail("piyushj266@gmail.com");
+			registrationForm.setEmail("piyushj564@gmail.com");
 			registrationForm.setFirst_name("Piyush");
 			registrationForm.setPassword("123456");
 			registrationForm.setCpassword("123456");
@@ -57,14 +59,14 @@ public class RegistrationTest
 		{
 			RegistrationForm registrationForm=new RegistrationForm();
 			
-			registrationForm.setEmail("piyushj266@gmail.com");
+			registrationForm.setEmail("piyushj564@gmail.com");
 					registrationdao.deleteTheRegistration(registrationForm);
 	}
 //			@Ignore
 		    	@Test
 		    	public void getTheRegistration()
 		    	{
-		    		RegistrationForm registrationForm=registrationdao.getTheRegistration("piyushj266@gmail.com");
+		    		RegistrationForm registrationForm=registrationdao.getTheRegistration("piyushj564@gmail.com");
 		    		assertNotNull("Problem in Getting:"+registrationForm);
 		    
 		    		System.out.println("Registration Email:"+registrationForm.getEmail());
@@ -76,6 +78,8 @@ public class RegistrationTest
 	    			System.out.println("Registration Confirm Password"+registrationForm.getCpassword());
 	    			System.out.println("Registration Location"+registrationForm.getLocation());
 	    			System.out.println("Registration Address"+registrationForm.getAddress());
+	    			System.out.println("Registration Role"+registrationForm.getRole());
+	    			System.out.println("Registration Enabled"+registrationForm.isEnabled());
 			}
 	}
 

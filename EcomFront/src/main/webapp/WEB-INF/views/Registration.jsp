@@ -25,6 +25,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/header.jsp" %>
 <div class="container">
 
 <c:if test="${nomatch.equals('nomatch') }">
@@ -90,7 +91,7 @@
 <label for="name" class="cols-sm-2 control-label">Gender</label>
 <div class="cols-sm-10">
 <div class="input-group">
-<span class="input-group-addon"></span>
+
   <input type="radio" name="gender" value="male">Male <i class="fa fa-male" aria-hidden="true"></i>  
   <input type="radio" name="gender" value="female"> Female <i class="fa fa-female" aria-hidden="true"></i>
   <input type="radio" name="gender" value="other">  Other <i class="fa fa-genderless" aria-hidden="true"></i>

@@ -25,7 +25,8 @@ public class RegistrationForm
 	private String cpassword;
 	private String gender;
 	private String address;
-
+	private String role;
+	private boolean enabled;
 	
 	public String getEmail() {
 		return email;
@@ -82,5 +83,18 @@ public class RegistrationForm
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	}

@@ -29,20 +29,18 @@
 						class="icon-bar"></span>
 				</button>
 				
-				<li class><a href="/home">Home</a></li>
+				<li><a href="/EcomFront">Home</a></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Product Category <span
-						class="caret"></span></a>
+						class="caret"></span></a>						
 					<ul class="dropdown-menu">
 						<li><a href="#">Footwear</a></li>
 						<li><a href="#">Books</a></li>
 						<li><a href="#">Movies</a></li>
-						<c:forEach var="category" items="${categoryList}">
-					<li><a href="#">${category.cat_name}</a></li> 
-					</c:forEach>
-					</ul></li>
 					
+					</ul></li>
+					<li><a href="userHome">UserHome</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
 				<ul class="dropdown-menu">

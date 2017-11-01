@@ -61,8 +61,8 @@
 <td>${supplier.sup_contact}</td>
 <td>${supplier.sup_address}</td>
 <td>
-<a href="<c:url value="deleteSupplier${supplier.sup_id}"/> "#" class="btn btn-info" role="button"">Delete</a>/
-<a href="<c:url value="updateSupplier${supplier.sup_id}"/> "#" class="btn btn-info" role="button"">Update</a>
+<a href="<c:url value="admindeleteSupplier${supplier.sup_id}"/> "#" class="btn btn-info" role="button"">Delete</a>/
+<a href="<c:url value="adminupdateSupplier${supplier.sup_id}"/> "#" class="btn btn-info" role="button"">Update</a>
 </td>
 </c:forEach>
 

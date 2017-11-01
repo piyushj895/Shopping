@@ -17,7 +17,7 @@ public class SupplierController
 {
 	@Autowired
 	SupplierDao supplierDao;
-	@RequestMapping(value="/supplier")
+	@RequestMapping(value="/adminsupplier")
 	public String showTheSupplier(Model m)
 	{
 	List<Supplier> listSupplier=supplierDao.retrieveSupplier();
@@ -25,7 +25,7 @@ public class SupplierController
 	m.addAttribute("suppliermodel",new Supplier());
 	return "Supplier";
 	}
-	@RequestMapping(value="/showTheSupplier")
+	@RequestMapping(value="/adminshowTheSupplier")
 	public String saveTheSupplier(@ModelAttribute Supplier supplier,Model m)
 	{
 		supplierDao.saveTheSupplier(supplier);
@@ -36,7 +36,7 @@ public class SupplierController
 		return "Supplier";
 		
 	}
-	@RequestMapping(value="updateSupplier{sup_id}")
+	@RequestMapping(value="adminupdateSupplier{sup_id}")
 	public String updateSupplier(@PathVariable("sup_id")int suppId,Model m)
 	{
 		Supplier supplier=supplierDao.getTheSupplier(suppId);
@@ -45,7 +45,7 @@ public class SupplierController
 		m.addAttribute("supplierList", listSupplier);
 		return "SupplierUpdate";
 	}
-	@RequestMapping(value="/UpdateSupplier")
+	@RequestMapping(value="/adminUpdateSupplier")
 	public String updateMySupplier(@ModelAttribute Supplier supplier,Model m)
 	{
 		supplierDao.updateTheSupplier(supplier);
@@ -54,7 +54,7 @@ public class SupplierController
 		m.addAttribute("suppliermodel", new Supplier());
 		return "Supplier";
 	}
-	@RequestMapping(value="deleteSupplier{sup_id}")
+	@RequestMapping(value="admindeleteSupplier{sup_id}")
 	public String deleteTheSupplier(@PathVariable("sup_id")int suppId,Model m)
 	{
 		Supplier supplier=supplierDao.getTheSupplier(suppId);

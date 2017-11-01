@@ -35,7 +35,7 @@ public class ProductController
 	Dao dao;
 	@Autowired
 	SupplierDao supplierDao;
-	@RequestMapping(value="/product")
+	@RequestMapping(value="/adminproduct")
 	public String showTheProduct(Model m)
 	{
 		List<Product> listProduct=productdao.retrieveProduct();
@@ -46,7 +46,7 @@ public class ProductController
 		return "Product";
 }
 	
-	@RequestMapping(value="/showTheProduct")
+	@RequestMapping(value="/adminshowTheProduct")
 	public String saveTheProduct(@ModelAttribute Product product,Model m ,@RequestParam("pimage") MultipartFile file)
 {
 		productdao.saveTheProduct(product);
@@ -82,7 +82,7 @@ public class ProductController
 
 	
 }
-	@RequestMapping(value="updateProduct{prod_id}")
+	@RequestMapping(value="adminupdateProduct{prod_id}")
 	public String updateProduct(@PathVariable("prod_id") int prodId,Model m)
 	{
 		Product product=productdao.getTheProduct(prodId);
@@ -94,7 +94,7 @@ public class ProductController
 		return "ProductUpdate";
 		
 	}
-	@RequestMapping(value="/UpdateProduct")
+	@RequestMapping(value="/adminUpdateProduct")
 	public String updateMyProduct(@ModelAttribute Product product,Model m)
 	{
 		productdao.updateTheProduct(product);
@@ -103,7 +103,7 @@ public class ProductController
 		m.addAttribute("productmodel", new Product());
 		return "Product";
 	}
-	@RequestMapping(value="deleteProduct{prod_id}")
+	@RequestMapping(value="admindeleteProduct{prod_id}")
 	public String deleteTheProduct(@PathVariable("prod_id")int prodId,Model m)
 	{
 		Product product=productdao.getTheProduct(prodId);

@@ -26,7 +26,7 @@ public class HiberConfig
 	        sessionFactory.setHibernateProperties(hibernateProperties());
 	        return sessionFactory;
 }
-	 @Bean
+	 @Bean("dataSource")
 	    public DataSource dataSource() 
 	 {
 	        DriverManagerDataSource dataSource = new DriverManagerDataSource();

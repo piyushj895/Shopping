@@ -11,21 +11,26 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
-<form action="perform_login" method="post">
+<c:if test="${not empty message}">
+<div class="alert alert-danger">
+${message}
+</div>
+</c:if>
+<form action="${pageContext.request.contextPath}/login" method="post">
 <table align="center">
-	
-		<tr><td colspan="2"><center>Login Page</center></td></tr>
-		<tr>
-			<td> Email ID</td>
-			<td> <input type="email" name="email" required/></td>
-		</tr>
-		<tr>
-			<td> Password</td>
-			<td> <input type="password" name="password" required/></td>
-		</tr>
-		<tr>
-			<td colspan="2"><center><input type="submit" value="LOGIN"/></center>
-		</tr>
+	<tr>
+	<td>Email:</td>
+	<td><input type="text" name="username"></td>
+	</tr>
+	<tr>
+	<td>Password:</td>
+	<td><input type="password" name="password"/></td>
+	</tr>
+	<tr>
+	<td colspan="2">
+	<input name="submit" type="submit" value="Login"/></td>
+	</tr>
+		
 </table>
 </form>
 

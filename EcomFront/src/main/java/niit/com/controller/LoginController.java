@@ -8,34 +8,28 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController 
 {
-	@RequestMapping("login")  
-	 public ModelAndView getLoginForm(  
-	   @RequestParam(required = false) String authfailed, String logout,  
-	   String denied) {  
-	  String message = "";  
-	  if (authfailed != null) {  
-	   message = "Invalid username of password, try again !";  
-	  } else if (logout != null) {  
-	   message = "Logged Out successfully, login again to continue !";  
-	  } else if (denied != null) {  
-	   message = "Access denied for this user !";  
-	  }  
-	  return new ModelAndView("Login", "message", message);  
-	 }  
-	@RequestMapping("/user")  
-	 public String geUserPage() 
+	@RequestMapping(value="/login")  
+	 public ModelAndView login(@RequestParam(name="error",required=false)String error)
+	 {
+		ModelAndView mv=new ModelAndView("login");
+		if(error!=null)
+		{
+			mv.addObject("message", "Invalid Email or Password");
+		}
+		return mv;		
+	 }
+	@RequestMapping(value="/access-denied")  
+	 public ModelAndView accessDenied()
+	 {
+		ModelAndView mv=new ModelAndView("error");
+		mv.addObject("403-Access Denied");
+		mv.addObject("errorTitle", "Aha! caught you");
+		mv.addObject("errorDescription","You are not allowed to view this page");
+		return mv;		
+	 }
+	@RequestMapping("admin")  
+	 public String getAdminPage() 
 	{  
-	  return "user";  
-	 }  
-	  
-	 @RequestMapping("/admin")  
-	 public String geAdminPage() 
-	 {  
 	  return "admin";  
-	 }  
-	  
-	 @RequestMapping("403page")  
-	 public String ge403denied() {  
-	  return "redirect:login?denied";  
-	 }  
+}	
 }

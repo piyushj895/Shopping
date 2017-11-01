@@ -99,8 +99,8 @@
 <td>${product.prod_name}</td>
 <td>${product.prod_desc}</td>
 <td>
-<a href="<c:url value="deleteProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Delete</a>/
-<a href="<c:url value="updateProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Update</a>
+<a href="<c:url value="admindeleteProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Delete</a>/
+<a href="<c:url value="adminupdateProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Update</a>
 </td>
 </c:forEach>
 </table>

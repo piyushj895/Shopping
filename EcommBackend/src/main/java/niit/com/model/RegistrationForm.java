@@ -11,8 +11,6 @@ public class RegistrationForm
 {
 
 	@Id
-
-	
 	private String email;
 	private String first_name;
 	private String last_name;

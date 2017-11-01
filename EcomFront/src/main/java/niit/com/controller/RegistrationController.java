@@ -26,7 +26,6 @@ public String saveTheRegistration(@ModelAttribute RegistrationForm registrationF
 
 registrationForm.setRole("ROLE_USER");
 registrationForm.setEnabled(true);
-registrationDao.saveTheRegistration(registrationForm);
 
 
 	if(registrationForm.getPassword().equals(registrationForm.getCpassword()))

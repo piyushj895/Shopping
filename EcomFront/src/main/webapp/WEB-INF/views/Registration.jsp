@@ -129,9 +129,8 @@
 </div>
 <br>
 <div class="form-group ">
-<div class="cols-sm-10">
+
 <input  type="submit" id="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register">
-<div class="cols-sm-10">
 <input  type="reset" id="reset" class="btn btn-primary btn-lg btn-block login-button" value="Reset">
 </div>
 </div>

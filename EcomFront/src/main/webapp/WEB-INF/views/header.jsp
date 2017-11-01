@@ -30,7 +30,7 @@
 				</button>
 				
 				<li><a href="/EcomFront">Home</a></li>
-
+				
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Product Category <span
 						class="caret"></span></a>						
@@ -44,18 +44,25 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="category">Category</a></li>
-					<li><a href="product">Product</a></li>
-					<li><a href="supplier">Supplier</a></li>
+					<li><a href="admincategory">Category</a></li>
+					<li><a href="adminproduct">Product</a></li>
+					<li><a href="adminsupplier">Supplier</a></li>
 					
 				</ul></li>
 				</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="registration"><span class="glyphicon glyphicon-user"></span>
+			<c:if test="${pageContext.request.userPrincipal.name==null}">
+				<li><a href="${pageContext.request.contextPath}/registration"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>
-				<li><a href="login"><span class="glyphicon glyphicon-log-in"></span>
+				<li><a href="${pageContext.request.contextPath}/login"><span class="glyphicon glyphicon-log-in"></span>
 						Login</a></li>
+						</c:if>
+						<c:if test="${pageContext.request.userPrincipal.name!=null}">
+						<li><a>Welcome:${pageContext.request.userPrincipal.name}</a></li>
+				<li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span>
+				Logout</a></li>
+				</c:if>
 			</ul>
 			<form class="navbar-form navbar-right">
 				<div class="form-group">

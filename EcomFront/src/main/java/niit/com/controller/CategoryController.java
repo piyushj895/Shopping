@@ -17,7 +17,7 @@ public class CategoryController
 {
 		@Autowired
 		Dao dao;
-		@RequestMapping(value="/category")
+		@RequestMapping(value="/admincategory")
 		public String showCategory(Model m)
 		{
 			List<Category> listCategory=dao.retrieveCategory();
@@ -25,7 +25,7 @@ public class CategoryController
 			m.addAttribute("categorymodel", new Category());
 			return "Category";
 		}
-		@RequestMapping(value="/showCategory")
+		@RequestMapping(value="/adminshowCategory")
 		public String saveTheCategory(@ModelAttribute Category category,Model m)
 		{
 			
@@ -35,7 +35,7 @@ public class CategoryController
 			m.addAttribute("categorymodel", new Category());
 			return "Category";
 		}
-		@RequestMapping(value="updateCategory{cat_id}")
+		@RequestMapping(value="adminupdateCategory{cat_id}")
 		public String updateCategory(@PathVariable("cat_id") int catId,Model m)
 		{
 			Category category=dao.getTheCategory(catId);
@@ -47,7 +47,7 @@ public class CategoryController
 		}
 		
 		
-		@RequestMapping(value="/UpdateCategory")
+		@RequestMapping(value="/adminUpdateCategory")
 		public String updateMyCategory(@ModelAttribute Category category,Model m)
 		{
 			dao.updateTheCategory(category);
@@ -58,7 +58,7 @@ public class CategoryController
 		}
 		
 		
-		@RequestMapping(value="deleteCategory/{cat_id}")
+		@RequestMapping(value="admindeleteCategory/{cat_id}")
 		public String deleteTheCategory(@PathVariable("cat_id")int catId,Model m)
 		{
 			Category category=dao.getTheCategory(catId);

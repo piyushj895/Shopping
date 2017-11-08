@@ -1,14 +1,15 @@
-
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ include file="header.jsp" %>
 <h2>Welcome To Online Shopping</h2>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -24,14 +25,14 @@
  
     <div class="item active">
     
-      <img src="<c:url value="/resources/books.png"/>" alt="Books" width="800" height="300" style="margin:auto">
+      <img src="<c:url value="/resources/books.png"/>" alt="Books" width="100%" height="500px" style="margin:auto">
     </div>
     <div class="item">
-      <img src="<c:url value="/resources/movie.jpg"/>" alt="Movies" width="800" height="300" style="margin:auto">
+      <img src="<c:url value="/resources/movie2.png"/>" alt="Movies" width="100%" height="500px" style="margin:auto">
     </div>
 
     <div class="item">
-      <img src="<c:url value="/resources/shoes.JPG"/>" alt="Shoes" width="800" height="100" style="margin:auto">
+      <img src="<c:url value="/resources/shoes.JPG"/>" alt="Shoes" width="100%" height="500px" style="margin:auto">
     </div>
     </div>
  
@@ -47,5 +48,5 @@
   
 </div>
 
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+<%@ include file="footer.jsp" %>
 

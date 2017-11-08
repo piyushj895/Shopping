@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+	 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+	 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,12 +14,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
+	<nav id="navbar-red" class="navbar navbar-inverse navbar-static-top" role="navigationS">
 	<div class="container">
 		<div class="navbar-header">
 
@@ -28,28 +30,24 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				
+			
 				<li><a href="/EcomFront">Home</a></li>
 				
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Product Category <span
-						class="caret"></span></a>						
-					<ul class="dropdown-menu">
-						<li><a href="#">Footwear</a></li>
-						<li><a href="#">Books</a></li>
-						<li><a href="#">Movies</a></li>
-					
-					</ul></li>
-					<li><a href="userHome">UserHome</a></li>
+				
+				
+					<li><a href="userHome">ProductList</a></li>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="admincategory">Category</a></li>
 					<li><a href="adminproduct">Product</a></li>
 					<li><a href="adminsupplier">Supplier</a></li>
-					
-				</ul></li>
+					</ul>
+					</li>
+					</sec:authorize>
 				</ul>
+				
 			
 			<ul class="nav navbar-nav navbar-right">
 			<c:if test="${pageContext.request.userPrincipal.name==null}">
@@ -62,15 +60,11 @@
 						<li><a>Welcome:${pageContext.request.userPrincipal.name}</a></li>
 				<li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span>
 				Logout</a></li>
+				<li><a href="${pageContext.request.contextPath}/cart" class="glyphicon">&#xe116;</a></li>
 				</c:if>
 			</ul>
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search">
-				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
-			</form>
-
+			
+			
 		</div>
 	</div>
 	</nav>

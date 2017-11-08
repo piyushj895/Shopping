@@ -1,21 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<title>Display Product</title>
-</head>
-<body>
-<%@ include file="/WEB-INF/views/header.jsp" %>
-<form:form action="showTheProduct" modelAttribute="productmodel" enctype="multipart/form-data">
+<%@ include file="header.jsp" %>
+<form:form action="adminshowTheProduct" modelAttribute="productmodel" enctype="multipart/form-data">
 <center>
 <table border="1">
 
@@ -46,10 +41,12 @@
 	
 		<td>Category</td>
 		<td>
+		
 			<form:select path="cat_id">
-				<form:option value="0" label="---Select---"/>
-				
-				<form:options items="${categoryList}"/>
+			<c:forEach var="category" items="${categoryList}">
+			
+				<form:option value="${category.cat_id}">${category.cat_name}</form:option>
+		</c:forEach>		
 	</form:select>
 	</td>
 	</tr>
@@ -58,15 +55,14 @@
 		<td>Supplier</td>
 		<td>
 			<form:select path="supplierId">
-				<form:option value="0" label="---Select---"/>
-				
-				<form:options items="${supplierList}"/>
+			<c:forEach var="supplier" items="${supplierList}">
+				<form:option value="${supplier.sup_id}">${supplier.sup_name}</form:option>
+				</c:forEach>
 	</form:select>
 	</td>
 	</tr>
 	<tr>
 	<td>Product Image</td>
-	Upload :
       <td><input type="file" name="pimage"/></td>
       </tr>
 </table>
@@ -86,7 +82,8 @@
         <th><h4 style="color:white;">Product Description</h4></th>
         <th><h4 style="color:white;">Product Price</h4></th>
         <th><h4 style="color:white;">Product Stock</h4></th>
-        <th><h4 style="color:white;">Status</h4></th>
+        <th><h4 style="color:white;">Product Image</h4></th>
+       
       </tr>
       </thead>
 <c:forEach items="${productList}" var="product">
@@ -97,7 +94,7 @@
 <td>${product.price}</td>
 <td>${product.stock}</td>
 <td>
-
+<img src="<c:url value="/resources/images/${product.prod_id}.jpg"/>" width="100px" height="100px"/> 
 <a href="<c:url value="admindeleteProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Delete</a>/
 <a href="<c:url value="adminupdateProduct${product.prod_id}"/> "#" class="btn btn-info" role="button"">Update</a>
 </td>
@@ -105,5 +102,4 @@
 </table>
 </div>
 </center>
-</body>
-</html>
+<%@ include file="footer.jsp" %>

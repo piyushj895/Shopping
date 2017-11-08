@@ -6,7 +6,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +40,10 @@ public class ProductController
 	{
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute(listProduct);
-		m.addAttribute("categoryList",this.getCategories());
-		m.addAttribute("supplierList",this.getSuppliers());
+		List<Category> listCategory=dao.retrieveCategory();
+		m.addAttribute("categoryList", listCategory);
+		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
+		m.addAttribute("supplierList",listSupplier);
 		m.addAttribute("productmodel", new Product());
 		return "Product";
 }
@@ -53,6 +55,8 @@ public class ProductController
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute("productList", listProduct);
 		m.addAttribute("productmodel", new Product());
+		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
+		m.addAttribute("supplierList",listSupplier);
 		String path = "C:\\Users\\pratik\\Desktop\\Shopping-master\\EcomFront\\src\\main\\webapp\\resources\\images\\";
 		String totalFileWithPath=path+String.valueOf(product.getProd_id())+".jpg";
 		File fileupload= new File(totalFileWithPath);
@@ -89,8 +93,10 @@ public class ProductController
 		m.addAttribute("productmodel",product);
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute("productList", listProduct);
-		m.addAttribute("categoryList",this.getCategories());
-		m.addAttribute("supplierList",this.getSuppliers());
+		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
+		m.addAttribute("supplierList",listSupplier);
+		List<Category> listCategory=dao.retrieveCategory();
+		m.addAttribute("categoryList", listCategory);
 		return "ProductUpdate";
 		
 	}
@@ -101,6 +107,10 @@ public class ProductController
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute("productList",listProduct);
 		m.addAttribute("productmodel", new Product());
+		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
+		m.addAttribute("supplierList",listSupplier);
+		List<Category> listCategory=dao.retrieveCategory();
+		m.addAttribute("categoryList", listCategory);
 		return "Product";
 	}
 	@RequestMapping(value="admindeleteProduct{prod_id}")
@@ -110,7 +120,9 @@ public class ProductController
 		productdao.deleteTheProduct(product);
 		List<Product> listProduct=productdao.retrieveProduct();
 		m.addAttribute("productList",listProduct);
-		m.addAttribute("productmodel", new Product());
+		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
+		m.addAttribute("supplierList",listSupplier);m.addAttribute("productmodel", new Product());
+		
 		return "Product";
 	}
 	@RequestMapping(value="userHome")
@@ -122,26 +134,27 @@ public class ProductController
 		
 		return "UserHome";
 	}
-	public LinkedHashMap<Integer,String> getCategories()
+	public List<String> getCategories()
 	{
 		List<Category> listCategory=dao.retrieveCategory();
-		LinkedHashMap<Integer,String> categoryList=new LinkedHashMap<Integer,String>();
+		List<String> categoryList=new LinkedList<String>();
 		
 		for(Category category:listCategory)
 		{
-			categoryList.put(category.getCat_id(),category.getCat_name());
+			categoryList.add(category.getCat_name());
 		}
 		
 		return categoryList;
 	}
-	public LinkedHashMap<Integer,String> getSuppliers()
+	public List<String> getSuppliers()
 	{
 		List<Supplier> listSupplier=supplierDao.retrieveSupplier();
-		LinkedHashMap<Integer,String> supplierList=new LinkedHashMap<Integer,String>();
+		List<String> supplierList=new LinkedList<String>();
 		
 		for(Supplier supplier:listSupplier)
 		{
-			supplierList.put(supplier.getSup_id(),supplier.getSup_name());
+			supplierList.add(supplier.getSup_name());
+			
 		}
 		
 		return supplierList;
@@ -154,5 +167,13 @@ public class ProductController
 		m.addAttribute("productmodel", new Product());
 		return "ProdDesc";
 	}
+	@RequestMapping(value="adminshowProduct{prod_id}")
+	public String showProduct(@PathVariable("prod_id")int prodId,Model m)
+	{
+		Product product=productdao.getTheProduct(prodId);
+		m.addAttribute("product",product);
+		m.addAttribute("productmodel", new Product());
+		return "Product";
 }
 
+}

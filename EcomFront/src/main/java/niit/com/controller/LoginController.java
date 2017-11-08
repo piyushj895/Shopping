@@ -27,9 +27,4 @@ public class LoginController
 		mv.addObject("errorDescription","You are not allowed to view this page");
 		return mv;		
 	 }
-	@RequestMapping("admin")  
-	 public String getAdminPage() 
-	{  
-	  return "admin";  
-}	
 }

@@ -3,8 +3,6 @@ package niit.com.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class RegistrationForm 
@@ -18,7 +16,6 @@ public class RegistrationForm
 	private String location;
 	@NotNull
 	@NotEmpty(message = "Please enter your password.")
-    @Size(min = 6, max = 15, message = "Your password must between 6 and 15 characters")
 	private String password;
 	private String cpassword;
 	private String gender;

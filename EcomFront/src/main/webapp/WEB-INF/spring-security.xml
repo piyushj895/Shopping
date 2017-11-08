@@ -17,22 +17,18 @@
  	        <http>
  	        <intercept-url pattern="/admin*" access="hasRole('ADMIN')" />
  	        <intercept-url pattern="/cart/**" access="hasRole('USER')" />
- 	        
-<intercept-url pattern="/**" access="permitAll" />
-
-<form-login login-page="/login"/>
-<access-denied-handler error-page="/access-denied"/>
-
-<logout />
-<csrf disabled="true"/>
-<logout logout-url="/logout" logout-success-url="/"/>
-</http>
-	
-	<authentication-manager>
-<authentication-provider>
+ 	        <intercept-url pattern="/**" access="permitAll" />
+ 	        <form-login login-page="/login"/>
+			<access-denied-handler error-page="/access-denied"/>
+			
+			<csrf disabled="true"/>
+			<logout logout-url="/logout" logout-success-url="/"/>
+			</http>
+			<authentication-manager>
+			<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource" 
 			users-by-username-query="select email,password,enabled from REGISTRATIONFORM where email=?"
-authorities-by-username-query="select email,role from REGISTRATIONFORM where email=?"/>
-</authentication-provider>
-</authentication-manager>
+			authorities-by-username-query="select email,role from REGISTRATIONFORM where email=?"/>
+			</authentication-provider>
+			</authentication-manager>
 </beans:beans>

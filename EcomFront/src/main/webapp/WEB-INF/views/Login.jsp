@@ -7,7 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+<link href="<c:url value="/resources/login.css"/>" rel="stylesheet">
 </head>
 <body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
@@ -16,23 +21,20 @@
 ${message}
 </div>
 </c:if>
-<form action="${pageContext.request.contextPath}/login" method="post">
-<table align="center">
-	<tr>
-	<td>Email:</td>
-	<td><input type="text" name="username"></td>
-	</tr>
-	<tr>
-	<td>Password:</td>
-	<td><input type="password" name="password"/></td>
-	</tr>
-	<tr>
-	<td colspan="2">
-	<input name="submit" type="submit" value="Login"/></td>
-	</tr>
-		
-</table>
-</form>
+<div class = "container">
+	<div class="wrapper">
+<form action="${pageContext.request.contextPath}/login" method="post" name="Login_Form" class="form-signin">
+<h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+			  
+			  <input type="text" class="form-control" name="username" placeholder="Email ID" required="" autofocus="" />
+			  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>     		  
+			 
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+		</form>			
+	</div>
+</div>
+
 
 </body>
 </html>

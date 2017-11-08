@@ -1,13 +1,14 @@
+
+
 <%@ page language="java" import="niit.com.model.Product" contentType="text/html"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-<table>
+
+<table border="1">
 
 <tr>
 		<td rowspan="5">
@@ -26,8 +27,30 @@
 		<td>Product Desc:${product.prod_desc}</td>
 	</tr>
 	<tr>
-		<td>Price:${product.price}</td>
+		<td>Price:Rs.${product.price}</td>
 	</tr>
 	</table>
+	<form action="${pageContext.request.contextPath}/addToCart" method="post">
+						<input type="hidden" value="${product.prod_id}" name="pId" />
+						<input type="hidden" value="${product.price}" name="pPrice" />
+						<input type="hidden" value="${product.prod_name}" name="name" />
+						<br>
+						<label class="control-label col-sm-2">Quantity</label>
+						<input type="number" class="form-control" name="quant" required />
+						
+						<br>
+						
+							<input class="btn btn-primary navbar-inverse" type="submit" value="Add to cart">
+							</form>
+						
+							<br>
+							<button onclick="goBack()">Go Back</button>
+						<script>
+				function goBack()
+				{
+    			window.history.back();
+				}
+</script>
+							 
 </body>
 </html>

@@ -6,35 +6,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <title>Insert title here</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
-
-<table cellspacing="2" align="center">
-<tr bgcolor="gray">
-	<td>Product Name</td>
-	<td>Price</td>
-	<td>Category</td>
-	<td>Stock</td>
-	<td>Photo</td>
+<div class="container">                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+    <tr>
+	<th>Product Name</th>
+	<th>Price</th>
+	<th>Category</th>
+	<th>Stock</th>
+	<th>Photo</th>
 </tr>
 <c:forEach items="${productList}" var="product">
 	<tr>
-		<td>${product.prod_name}</td>
-		<td>${product.price}</td>
-		<td>${product.cat_id}</td>
-		<td>${product.stock}</td>
-		<td>
+		<th>${product.prod_name}</th>
+		<th>${product.price}</th>
+		<th>${product.cat_id}</th>
+		<th>${product.stock}</th>
+		<th>
 		<a href="prod_desc/${product.prod_id}">
 		<img src="<c:url value="/resources/images/${product.prod_id}.jpg"/>" width="100px" height="100px"/>
 		</a>
-		</td>
+		</th>
 		
 	</tr>
 </c:forEach>
 </table>
+</div>
+</div>
 </body>
 </html>

@@ -54,7 +54,6 @@ public class DaoImpl implements Dao
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Category");
 		List<Category> retrieveCategory=query.list();
-		//sessionFactory.close();
 		return retrieveCategory;
 	}
 	

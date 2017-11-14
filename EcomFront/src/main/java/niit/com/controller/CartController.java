@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import niit.com.dao.CartDao;
 import niit.com.dao.Dao;
 import niit.com.dao.ProductDao;
+import niit.com.dao.RegistrationDao;
 import niit.com.dao.SupplierDao;
 import niit.com.model.Cart;
+import niit.com.model.RegistrationForm;
 
 @Controller
 public class CartController 
@@ -30,7 +32,8 @@ SupplierDao supplierDao;
 ProductDao productDao;
 @Autowired
 CartDao cartDao;
-
+@Autowired
+RegistrationDao registrationDao;
 @RequestMapping(value="/addToCart",method=RequestMethod.POST)
 public String addToCart(HttpServletRequest request,Model m)
 {
@@ -102,16 +105,27 @@ public String deleteTheCategory(@PathVariable("cartItemId")int prodId,Model m)
 @RequestMapping(value = "/checkout")
 public String checkout(HttpServletRequest request, Model m) {
 	String gtot = request.getParameter("gtot");
+	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+	String name=authentication.getName();
+	System.out.println(name);
+	
 	// System.out.println(gtot);
 	m.addAttribute("gtot", gtot);
+	RegistrationForm registrationForm=registrationDao.getTheRegistration(name);
+	m.addAttribute("registrationForm",registrationForm);
 	return "Checkout";
 }
 
 @RequestMapping(value = "/invoice")
 public String invoice(HttpServletRequest request, Model m) {
+	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+	String name=authentication.getName();
+	System.out.println(name);
 	String gtot = request.getParameter("gtot");
 	// System.out.println(gtot);
 	m.addAttribute("gtot", gtot);
+	RegistrationForm registrationForm=registrationDao.getTheRegistration(name);
+	m.addAttribute("registrationForm",registrationForm);
 	return "Invoice";
 }
 }

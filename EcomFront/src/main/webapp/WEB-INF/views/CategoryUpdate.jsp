@@ -22,10 +22,7 @@
 <%@ include file="header.jsp" %>
 <form:form action="${pageContext.request.contextPath}/adminUpdateCategory" modelAttribute="categorymodel">
 <center>
-<table>
-	<tr>
-		<td colspan="2">Category Module</td>
-	</tr>
+<table border="1">
 	<tr>
 		<td>Category ID</td>
 		
@@ -41,13 +38,9 @@
 		
 		<td><form:input path="cat_desc"/></td>
 	</tr>
-	<tr>
-		<td colspan="2">
+	</table>
 			<center><input type="submit" value="Add"/></center>
-		</td>
-	</tr>
 	
-</table>
 </center>
 </form:form>
 <br>

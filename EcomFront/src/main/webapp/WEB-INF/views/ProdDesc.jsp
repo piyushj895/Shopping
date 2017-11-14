@@ -5,6 +5,16 @@
 <html>
 <head>
 <title>Insert title here</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -42,9 +52,8 @@
 						
 							<input class="btn btn-primary navbar-inverse" type="submit" value="Add to cart">
 							</form>
-						
-							<br>
-							<button onclick="goBack()">Go Back</button>
+					
+							<button class="btn btn-primary navbar-inverse" onclick="goBack()">Go Back</button>
 						<script>
 				function goBack()
 				{

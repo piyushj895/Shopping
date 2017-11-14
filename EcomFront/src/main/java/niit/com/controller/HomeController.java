@@ -35,14 +35,14 @@ public class HomeController
 	}
 	
 	
-		@RequestMapping(value="/home")
-		public ModelAndView formpage(Model m)
-		{
-			List<Category> listCategory=dao.retrieveCategory();
-			m.addAttribute("categoryList", listCategory);
-			
-			return new ModelAndView("home");
-		}
+//		@RequestMapping(value="/home")
+//		public ModelAndView formpage(Model m)
+//		{
+//			List<Category> listCategory=dao.retrieveCategory();
+//			m.addAttribute("categoryList", listCategory);
+//			
+//			return new ModelAndView("home");
+//		}
 		
 		@RequestMapping(value="/product")
 		public String viewProduct(HttpSession hs)

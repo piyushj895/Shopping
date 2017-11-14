@@ -58,7 +58,7 @@ public class CategoryController
 		}
 		
 		
-		@RequestMapping(value="admindeleteCategory/{cat_id}")
+		@RequestMapping(value="admindeleteCategory{cat_id}")
 		public String deleteTheCategory(@PathVariable("cat_id")int catId,Model m)
 		{
 			Category category=dao.getTheCategory(catId);

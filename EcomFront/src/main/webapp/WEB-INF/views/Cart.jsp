@@ -83,8 +83,7 @@ tab4 {
 <tab5><c:out value="${gtot}"></c:out></tab5>
 </h2>
 </h2>
-<hr
-						style="height: 1px; border: none; color: #333; background-color: #333;" />
+<hr style="height: 1px; border: none; color: #333; background-color: #333;" />
 					&nbsp;<a class="btn btn-primary navbar-inverse btn-lg"
 						href="${pageContext.request.contextPath}/userHome">Continue
 						Shopping</a>
@@ -92,12 +91,14 @@ tab4 {
 					<c:if test="${not empty cartlist}">
 						<form action="${pageContext.request.contextPath}/checkout"
 							method="post">
+							
 							<input type="hidden" value="${gtot}" name="gtot" />
-							<tab4>
+							
 							<input class="btn btn-primary navbar-inverse btn-lg"
 								type="submit" value="Checkout"></tab4>
 						</form>
 					</c:if>
+					<br>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

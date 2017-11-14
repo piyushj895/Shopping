@@ -129,7 +129,7 @@
 <br>
 <div class="form-group ">
 
-<input  type="submit" id="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register">
+<input  type="submit" id="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register"java">
 <input  type="reset" id="reset" class="btn btn-primary btn-lg btn-block login-button" value="Reset">
 </div>
 </div>

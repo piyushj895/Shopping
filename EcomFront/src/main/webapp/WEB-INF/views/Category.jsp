@@ -54,7 +54,7 @@
 <td>${category.cat_desc}</td>
 <td>
 
-<a href="<c:url value="admindeleteCategory/${category.cat_id}"/> "#" class="btn btn-info" role="button"">DELETE</a>/
+<a href="<c:url value="admindeleteCategory${category.cat_id}"/> "#" class="btn btn-info" role="button"">DELETE</a>/
 <a href="<c:url value="adminupdateCategory${category.cat_id}"/>"#" class="btn btn-info" role="button"">UPDATE</a>
 
 </td>

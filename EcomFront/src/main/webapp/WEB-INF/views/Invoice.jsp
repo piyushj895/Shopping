@@ -39,16 +39,19 @@
 
 			<br>
 			<div class='form-row'>
-				&emsp;<label class='control-label'>Customer Name: </label>&nbsp;${userModel.name}
+				&emsp;<label class='control-label'>Customer Name: </label>&nbsp;${registrationForm.first_name}
 			</div>
 			<div class='form-row'>
-				&emsp;<label class='control-label'>Customer Email: </label>&nbsp;${userModel.email}
+				&emsp;<label class='control-label'>Customer Last Name: </label>&nbsp;${registrationForm.last_name}
 			</div>
 			<div class='form-row'>
-				&emsp;<label class='control-label'>Customer Phone: </label>&nbsp;${userModel.phone}
+				&emsp;<label class='control-label'>Customer Email: </label>&nbsp;${registrationForm.email}
 			</div>
 			<div class='form-row'>
-				&emsp;<label class='control-label'>Shipping Address: </label>&nbsp;${userModel.address}
+				&emsp;<label class='control-label'>Customer Phone: </label>&nbsp;${registrationForm.contact_info}
+			</div>
+			<div class='form-row'>
+				&emsp;<label class='control-label'>Shipping Address: </label>&nbsp;${registrationForm.address}
 			</div>
 
 			<div class='form-row'>

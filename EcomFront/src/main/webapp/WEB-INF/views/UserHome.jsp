@@ -35,7 +35,7 @@
 <c:forEach items="${productList}" var="product">
 	<tr>
 		<th>${product.prod_name}</th>
-		<th>${product.price}</th>
+		<th>Rs.${product.price}</th>
 		<th>${product.cat_id}</th>
 		<th>${product.stock}</th>
 		<th>

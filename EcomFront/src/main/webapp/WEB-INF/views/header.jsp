@@ -18,18 +18,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav id="navbar-red" class="navbar navbar-inverse navbar-static-top" role="navigationS">
-	<div class="container">
-		<div class="navbar-header">
-
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
 			<a class="navbar-brand" href="#">Shoppers Cart</a>
 		</div>
+		
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav navbar-left">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-nav">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
+			<ul class="nav navbar-nav">
+				
 			
 				<li><a href="/EcomFront">Home</a></li>
 				
@@ -68,3 +71,5 @@
 		</div>
 	</div>
 	</nav>
+</body>
+</html>

@@ -69,7 +69,7 @@
 					&nbsp;&nbsp;<label class='control-label'>Address: </label>&nbsp;${registrationForm.address}
 				</div>
 				<div class='form-row'>
-					&nbsp;&nbsp;<label class='control-label'>Country: </label>&nbsp;${registrationForm.country}
+					&nbsp;&nbsp;<label class='control-label'>Country: </label>&nbsp;${registrationForm.location}
 				</div>
 				<div class="col-sm-12 jumbotronTransp" align="center">
 					<div class="head">
